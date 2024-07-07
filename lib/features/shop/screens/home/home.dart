@@ -1,10 +1,14 @@
 import 'package:ecommerce_app_flutter/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:ecommerce_app_flutter/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:ecommerce_app_flutter/features/shop/screens/home/widgets/home_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../common/widgets/custom_shapres/containers/primary_header_container.dart';
-import '../../../../common/widgets/custom_shapres/containers/search_container.dart';
+import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
+import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../../common/widgets/products/product_cards/product_card_horizontal.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -30,6 +34,7 @@ class HomeScreen extends StatelessWidget {
 
                   // Categories
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Heading
                       SectionHeading(
@@ -40,11 +45,30 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(height: TSizes.spaceBtwItems),
 
                       // Categories
+                      HomeCategories()
                     ],
                   )
                 ],
               ),
             ),
+            //   Body
+            Padding(
+              padding: EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                children: [
+                  // Promo Slider
+                  TPromoSlider(
+                    banners: [
+                      TImages.promoBanner1,
+                      TImages.promoBanner2,
+                      TImages.promoBanner3,
+                    ],
+                  ),
+                  //   Popular Products
+                  TProductCardVertical()
+                ],
+              ),
+            )
           ],
         ),
       ),
