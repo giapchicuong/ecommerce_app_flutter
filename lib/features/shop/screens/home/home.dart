@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_flutter/common/widgets/layout/grid_layout.dart';
 import 'package:ecommerce_app_flutter/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:ecommerce_app_flutter/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:ecommerce_app_flutter/features/shop/screens/home/widgets/home_slider.dart';
@@ -16,11 +17,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TPrimaryHeaderContainer(
+            const TPrimaryHeaderContainer(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -53,19 +54,30 @@ class HomeScreen extends StatelessWidget {
             ),
             //   Body
             Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
                   // Promo Slider
-                  TPromoSlider(
+                  const TPromoSlider(
                     banners: [
                       TImages.promoBanner1,
                       TImages.promoBanner2,
                       TImages.promoBanner3,
                     ],
                   ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+
+                  SectionHeading(
+                    title: 'Popular Products',
+                    padding: 0,
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems),
                   //   Popular Products
-                  TProductCardVertical()
+                  TGridLayout(
+                    itemCount: 4,
+                    itemBuilder: (_, index) => const TProductCardVertical(),
+                  ),
                 ],
               ),
             )
