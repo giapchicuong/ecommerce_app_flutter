@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:ecommerce_app_flutter/features/shop/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

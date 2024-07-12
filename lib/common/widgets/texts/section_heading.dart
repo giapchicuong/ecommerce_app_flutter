@@ -10,8 +10,9 @@ class SectionHeading extends StatelessWidget {
     required this.title,
     this.buttonTitle = 'View all',
     this.showActionButton = true,
+    this.padding = TSizes.defaultSpace,
   });
-
+  final double? padding;
   final Color? textColor;
   final bool showActionButton;
   final String title, buttonTitle;
@@ -19,8 +20,9 @@ class SectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: TSizes.defaultSpace),
-      child: Column(
+      padding: EdgeInsets.only(left: padding!),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
